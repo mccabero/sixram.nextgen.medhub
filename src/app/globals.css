@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f8fb;
+  --foreground: #0f2035;
+  --surface: #ffffff;
+  --surface-subtle: #eef5fb;
+  --primary: #0b63ce;
+  --primary-strong: #07407a;
+  --ink: #0f2035;
+  --muted-ink: #58718d;
+  --border: rgba(12, 68, 123, 0.12);
+  --border-strong: rgba(12, 68, 123, 0.22);
+  --ring: rgba(11, 99, 206, 0.38);
+  --ring-soft: rgba(11, 99, 206, 0.12);
+  --success-soft: #e6f8ef;
+  --success-ink: #177245;
+  --danger-soft: #fff0ee;
+  --danger-ink: #b2432f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope);
+  --font-serif: var(--font-merriweather);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at top left, rgba(70, 170, 239, 0.12), transparent 26%),
+    linear-gradient(180deg, #f7fbff 0%, #f4f8fb 48%, #edf4f9 100%);
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(11, 99, 206, 0.18);
+}
+
+.page-shell {
+  width: min(100%, 80rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.section-stack {
+  display: grid;
+  gap: 5rem;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(11, 99, 206, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 99, 206, 0.06) 1px, transparent 1px);
+  background-position: center;
+  background-size: 2rem 2rem;
+}
+
+.map-placeholder {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(11, 99, 206, 0.16), transparent 18%),
+    radial-gradient(circle at 80% 60%, rgba(44, 160, 222, 0.22), transparent 20%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(232, 242, 252, 0.95));
+}
+
+.rich-copy p + p {
+  margin-top: 1rem;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 180ms ease-out;
+}
+
+.animate-fade-out {
+  animation: fade-out 180ms ease-out;
+}
+
+.animate-slide-in {
+  animation: slide-in 220ms ease-out;
+}
+
+.animate-slide-out {
+  animation: slide-out 220ms ease-out;
+}
+
+@media (min-width: 640px) {
+  .page-shell {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-shell {
+    padding-inline: 2rem;
+  }
+}
